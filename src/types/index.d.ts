@@ -1,6 +1,18 @@
 declare module 'es6-tween'
 
 declare namespace ANIMATE {
+    type Quadratic = 'Quadratic.In' | 'Quadratic.Out' | 'Quadratic.InOut'
+    type Cubic = 'Cubic.In' | 'Cubic.Out' | 'Cubic.InOut'
+    type Quartic = 'Quartic.In' | 'Quartic.Out' | 'Quartic.InOut'
+    type Quintic = 'Quintic.In' | 'Quintic.Out' | 'Quintic.InOut'
+    type Sinusoidal = 'Sinusoidal.In' | 'Sinusoidal.Out' | 'Sinusoidal.InOut'
+    type Exponential = 'Exponential.In' | 'Exponential.Out' | 'Exponential.InOut'
+    type Circular = 'Circular.In' | 'Circular.Out' | 'Circular.InOut'
+    type Elastic = 'Elastic.In' | 'Elastic.Out' | 'Elastic.InOut'
+    type Back = 'Back.In' | 'Back.Out' | 'Back.InOut'
+    type Bounce = 'Bounce.In' | 'Bounce.Out' | 'Bounce.InOut'
+    type Easing = Quadratic | Cubic | Quartic | Quintic | Sinusoidal | Exponential | Circular | Elastic | Back | Bounce
+
     interface AnimateOptions {
         to?: object,
         /**
@@ -9,7 +21,7 @@ declare namespace ANIMATE {
          * @param EasingType.Out
          * @param EasingType.InOut
          */
-        easing?: 'Quadratic' | 'Cubic' | 'Quartic' | 'Quintic' | 'Sinusoidal' | 'Exponential' | 'Circular' | 'Elastic' | 'Back' | 'Bounce'
+        easing?: Easing
         duration?: number,
         reverse?: boolean,
         repeat?: number,
