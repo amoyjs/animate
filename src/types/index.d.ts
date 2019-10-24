@@ -3,18 +3,24 @@ declare module 'es6-tween'
 declare namespace ANIMATE {
     interface AnimateOptions {
         to?: object,
-        easing?: () => void,
+        /**
+         * @default Linear.None
+         * @param EasingType.In
+         * @param EasingType.Out
+         * @param EasingType.InOut
+         */
+        easing?: 'Quadratic' | 'Cubic' | 'Quartic' | 'Quintic' | 'Sinusoidal' | 'Exponential' | 'Circular' | 'Elastic' | 'Back' | 'Bounce'
         duration?: number,
         reverse?: boolean,
         repeat?: number,
         on?: {
-            start?: () => { },
-            update?: () => { },
-            complete?: () => { },
-            reverse?: () => { },
-            restart?: () => { },
-            play?: () => { },
-            stop?: () => { },
+            start?: (options: any) => void,
+            update?: (options: any) => void,
+            complete?: (options: any) => void,
+            reverse?: (options: any) => void,
+            restart?: (options: any) => void,
+            play?: (options: any) => void,
+            stop?: (options: any) => void,
         },
     }
 }

@@ -1,5 +1,5 @@
 import { Tween, Easing, autoPlay } from 'es6-tween'
-import { extract } from './common'
+import { extract, getEasing } from './common'
 
 autoPlay(true)
 
@@ -10,7 +10,7 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
             let target = this
             const {
                 to = {},
-                easing = Easing.Linear.None,
+                easing = getEasing('Linear.None'),
                 duration = 300,
                 reverse = false,
                 repeat = 0,
@@ -42,6 +42,5 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
                 .start()
             return tween
         }
-
     })
 }

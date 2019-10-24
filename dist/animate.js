@@ -1818,6 +1818,12 @@
           return prev;
       }, {});
   }
+  function getEasing(easing) {
+      var easings = ['Quadratic', 'Cubic', 'Quartic', 'Quintic', 'Sinusoidal', 'Exponential', 'Circular', 'Elastic', 'Back', 'Bounce'];
+      if (easings.some(function (_easing) { return easing.startsWith(_easing); }))
+          return Easing.Linear.None;
+      return easing.split('.').reduce(function (prev, current) { return (prev = prev[current], prev); }, Easing);
+  }
 
   autoPlay(true);
   function index (_a) {
@@ -1827,7 +1833,7 @@
           component.prototype.animate = function animate(options) {
               if (options === void 0) { options = {}; }
               var target = this;
-              var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? Easing.Linear.None : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.reverse, reverse = _d === void 0 ? false : _d, _e = options.repeat, repeat = _e === void 0 ? 0 : _e, _f = options.on, on = _f === void 0 ? {
+              var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? getEasing('Linear.None') : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.reverse, reverse = _d === void 0 ? false : _d, _e = options.repeat, repeat = _e === void 0 ? 0 : _e, _f = options.on, on = _f === void 0 ? {
                   start: function () { },
                   update: function () { },
                   complete: function () { },
