@@ -1,8 +1,10 @@
-import { Tween, Easing } from 'es6-tween'
+import { Tween, Easing, autoPlay } from 'es6-tween'
 import { extract } from './common'
 
-export default function ({ Sprite, Text, Graphics, Container }: any) {
-    const components = [Sprite, Text, Graphics, Container]
+autoPlay(true)
+
+export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: any) {
+    const components = [Sprite, AnimatedSprite, Text, Graphics, Container]
     components.map((component) => {
         component.prototype.animate = function animate(options: any = {}) {
             let target = this
@@ -43,4 +45,3 @@ export default function ({ Sprite, Text, Graphics, Container }: any) {
 
     })
 }
-

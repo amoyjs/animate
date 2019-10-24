@@ -19,6 +19,16 @@ declare namespace ANIMATE {
     }
 }
 
-declare module '@amoy/scene' {
+declare namespace PIXI {
+    export interface Enchance {
+        animate(options: ANIMATE.AnimateOptions): void
+    }
+    export interface Sprite extends Enchance { }
+    export interface Text extends Enchance { }
+    export interface Container extends Enchance { }
+    export interface Graphics extends Enchance { }
+}
+
+declare module '@amoy/animate' {
     export default function animate(options: ANIMATE.AnimateOptions): void
 }

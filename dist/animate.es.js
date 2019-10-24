@@ -98,6 +98,16 @@ const add = (tween) => {
     isStarted = true;
   }
 };
+
+/**
+ * Runs update loop automaticlly
+ * @param {Boolean} state State of auto-run of update loop
+ * @example TWEEN.autoPlay(true)
+ * @memberof TWEEN
+ */
+const autoPlay = (state) => {
+  _autoPlay = state;
+};
 /**
  * Removes tween from list
  * @param {Tween} tween Tween instance
@@ -1803,9 +1813,10 @@ function extract(from, to) {
     }, {});
 }
 
+autoPlay(true);
 function index (_a) {
-    var Sprite = _a.Sprite, Text = _a.Text, Graphics = _a.Graphics, Container = _a.Container;
-    var components = [Sprite, Text, Graphics, Container];
+    var Sprite = _a.Sprite, AnimatedSprite = _a.AnimatedSprite, Text = _a.Text, Graphics = _a.Graphics, Container = _a.Container;
+    var components = [Sprite, AnimatedSprite, Text, Graphics, Container];
     components.map(function (component) {
         component.prototype.animate = function animate(options) {
             if (options === void 0) { options = {}; }
