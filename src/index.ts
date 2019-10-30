@@ -14,16 +14,17 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
                 duration = 300,
                 reverse = false,
                 repeat = 0,
-                on = {
-                    start: () => { },
-                    update: () => { },
-                    complete: () => { },
-                    reverse: () => { },
-                    restart: () => { },
-                    play: () => { },
-                    stop: () => { },
-                },
+                on = {},
             } = options
+            const _on = Object.assign({
+                start: () => { },
+                update: () => { },
+                complete: () => { },
+                reverse: () => { },
+                restart: () => { },
+                play: () => { },
+                stop: () => { },
+            }, on)
             const tween = new Tween(extract(target, to))
                 .to(to, duration)
                 .easing(easing)
@@ -32,7 +33,7 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
                 .on('start', on.start)
                 .on('update', (options: any) => {
                     target = Object.assign(target, options)
-                    on.update(options)
+                    _on.update(options)
                 })
                 .on('complete', on.complete)
                 .on('reverse', on.reverse)

@@ -1827,7 +1827,8 @@ function index (_a) {
         component.prototype.animate = function animate(options) {
             if (options === void 0) { options = {}; }
             var target = this;
-            var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? getEasing('Linear.None') : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.reverse, reverse = _d === void 0 ? false : _d, _e = options.repeat, repeat = _e === void 0 ? 0 : _e, _f = options.on, on = _f === void 0 ? {
+            var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? getEasing('Linear.None') : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.reverse, reverse = _d === void 0 ? false : _d, _e = options.repeat, repeat = _e === void 0 ? 0 : _e, _f = options.on, on = _f === void 0 ? {} : _f;
+            var _on = Object.assign({
                 start: function () { },
                 update: function () { },
                 complete: function () { },
@@ -1835,7 +1836,7 @@ function index (_a) {
                 restart: function () { },
                 play: function () { },
                 stop: function () { },
-            } : _f;
+            }, on);
             var tween = new Tween(extract(target, to))
                 .to(to, duration)
                 .easing(easing)
@@ -1844,7 +1845,7 @@ function index (_a) {
                 .on('start', on.start)
                 .on('update', function (options) {
                 target = Object.assign(target, options);
-                on.update(options);
+                _on.update(options);
             })
                 .on('complete', on.complete)
                 .on('reverse', on.reverse)
