@@ -22,6 +22,7 @@ declare namespace ANIMATE {
          * @param EasingType.InOut
          */
         easing?: Easing
+        delay?: number,
         duration?: number,
         reverse?: boolean,
         repeat?: number,

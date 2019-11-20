@@ -12,6 +12,7 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
                 to = {},
                 easing = getEasing('Linear.None'),
                 duration = 300,
+                delay = 0,
                 reverse = false,
                 repeat = 0,
                 on = {},
@@ -29,6 +30,7 @@ export default function ({ Sprite, AnimatedSprite, Text, Graphics, Container }: 
                 .to(to, duration)
                 .easing(easing)
                 .repeat(repeat)
+                .delay(delay)
                 .reverse(reverse)
                 .on('start', on.start)
                 .on('update', (options: any) => {

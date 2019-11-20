@@ -1827,7 +1827,7 @@ function index (_a) {
         component.prototype.animate = function animate(options) {
             if (options === void 0) { options = {}; }
             var target = this;
-            var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? getEasing('Linear.None') : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.reverse, reverse = _d === void 0 ? false : _d, _e = options.repeat, repeat = _e === void 0 ? 0 : _e, _f = options.on, on = _f === void 0 ? {} : _f;
+            var _a = options.to, to = _a === void 0 ? {} : _a, _b = options.easing, easing = _b === void 0 ? getEasing('Linear.None') : _b, _c = options.duration, duration = _c === void 0 ? 300 : _c, _d = options.delay, delay = _d === void 0 ? 0 : _d, _e = options.reverse, reverse = _e === void 0 ? false : _e, _f = options.repeat, repeat = _f === void 0 ? 0 : _f, _g = options.on, on = _g === void 0 ? {} : _g;
             var _on = Object.assign({
                 start: function () { },
                 update: function () { },
@@ -1841,6 +1841,7 @@ function index (_a) {
                 .to(to, duration)
                 .easing(easing)
                 .repeat(repeat)
+                .delay(delay)
                 .reverse(reverse)
                 .on('start', on.start)
                 .on('update', function (options) {
